@@ -1,0 +1,97 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Website Refresh Demo: Before / After</title>
+<meta name="description" content="Demo of a small-business website cleanup: fixed links, clearer typography and spacing, consistent buttons and a mobile-friendly navigation.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Fraunces:opsz,wght@9..144,600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header class="demo-bar">
+    <div class="demo-bar__inner">
+      <span class="demo-bar__title">Website refresh demo</span>
+      <div class="toggle" role="tablist" aria-label="Version">
+        <button role="tab" id="tab-before" aria-selected="false" data-mode="before">Before</button>
+        <button role="tab" id="tab-after" aria-selected="true" data-mode="after">After</button>
+      </div>
+      <button class="notes-btn" id="notes-btn" aria-expanded="false" aria-controls="notes">What changed</button>
+    </div>
+    <aside class="notes" id="notes" hidden>
+      <ol>
+        <li><b>Broken links fixed.</b> Dead "Menu" and "Book" links now point to real sections; an external link opens safely.</li>
+        <li><b>Typography.</b> One heading font and one body font, a consistent type scale, readable line length.</li>
+        <li><b>Spacing.</b> Even section padding on an 8px grid instead of random gaps.</li>
+        <li><b>Buttons.</b> One primary style with visible hover and keyboard focus.</li>
+        <li><b>Navigation.</b> Sticky header and a working mobile menu.</li>
+        <li><b>Images and layout.</b> Responsive grid, no overflow on phones, alt text added.</li>
+      </ol>
+      <p class="notes__foot">Fictional business, built as a portfolio demo. The same fixes apply to Squarespace, Wix or WordPress sites through their custom CSS and editor settings.</p>
+    </aside>
+  </header>
+
+  <main id="site" class="site after">
+    <nav class="nav">
+      <a class="nav__logo" href="#top">Harbor&nbsp;Bakery</a>
+      <button class="nav__toggle" id="nav-toggle" aria-expanded="false" aria-controls="nav-links" aria-label="Open menu">&#9776;</button>
+      <ul class="nav__links" id="nav-links">
+        <li><a href="#menu" class="link-fixable" data-broken="menu.html">Menu</a></li>
+        <li><a href="#about">About</a></li>
+        <li><a href="#visit">Visit</a></li>
+        <li><a href="#book" class="link-fixable" data-broken="#">Order a cake</a></li>
+      </ul>
+    </nav>
+
+    <section class="hero" id="top">
+      <div class="hero__text">
+        <p class="eyebrow">Fresh every morning since 2009</p>
+        <h1>Sourdough, pastries and celebration cakes, baked by the harbor.</h1>
+        <p class="lead">Small batches, local flour and butter, and coffee from a roaster two streets away.</p>
+        <div class="hero__cta">
+          <a class="btn btn--primary link-fixable" href="#book" data-broken="#">Order a cake</a>
+          <a class="btn btn--ghost link-fixable" href="#menu" data-broken="menu.html">See the menu</a>
+        </div>
+      </div>
+      <div class="hero__img" role="img" aria-label="Loaves of sourdough bread on a wooden shelf"></div>
+    </section>
+
+    <section class="menu" id="menu">
+      <h2>Today's favourites</h2>
+      <div class="cards">
+        <article class="card"><div class="card__img card__img--1" role="img" aria-label="Country sourdough loaf"></div><h3>Country sourdough</h3><p>48-hour ferment, crackly crust.</p><span class="price">$9</span></article>
+        <article class="card"><div class="card__img card__img--2" role="img" aria-label="Butter croissants"></div><h3>Butter croissant</h3><p>Laminated by hand every night.</p><span class="price">$4</span></article>
+        <article class="card"><div class="card__img card__img--3" role="img" aria-label="Lemon tart"></div><h3>Lemon tart</h3><p>Sharp curd, shortbread base.</p><span class="price">$6</span></article>
+      </div>
+    </section>
+
+    <section class="about" id="about">
+      <h2>About us</h2>
+      <p>Harbor Bakery started as a weekend market stall. Today we bake for the neighbourhood six days a week and make custom cakes for birthdays and weddings.</p>
+    </section>
+
+    <section class="visit" id="visit">
+      <div>
+        <h2>Visit</h2>
+        <p>12 Quay Street<br>Tue to Sun, 7:00 to 15:00</p>
+        <a class="link-fixable" href="https://www.openstreetmap.org/" data-broken="http://maps.example/old-link" target="_blank" rel="noopener">Open in maps</a>
+      </div>
+      <div class="book" id="book">
+        <h2>Order a cake</h2>
+        <p>Tell us the date and the occasion, and we'll reply within a day.</p>
+        <form class="form" onsubmit="event.preventDefault(); this.querySelector('.form__ok').hidden=false;">
+          <label>Name<input required name="name" autocomplete="name"></label>
+          <label>Date<input required type="date" name="date"></label>
+          <button class="btn btn--primary" type="submit">Send request</button>
+          <p class="form__ok" hidden>Thanks! (Demo form: nothing is sent.)</p>
+        </form>
+      </div>
+    </section>
+
+    <footer class="footer">&copy; Harbor Bakery (fictional demo business)</footer>
+  </main>
+
+  <script src="app.js"></script>
+</body>
+</html>
